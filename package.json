@@ -19,6 +19,7 @@
     "morgan": "^1.10.1",
     "pg": "^8.19.0",
     "reflect-metadata": "^0.2.2",
+    "smee-client": "^5.0.0",
     "typeorm": "^0.3.28"
   },
   "devDependencies": {
