@@ -4,9 +4,9 @@
   "description": "GreenLine Express TypeScript API with PostgreSQL",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-    "build": "tsc",
-    "start": "node dist/index.js",
+    "dev": "node init && ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "node init && tsc",
+    "start": "node init && node dist/index.js",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
   },
   "keywords": [],
@@ -14,9 +14,11 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.6",
+    "dotenv": "^8.2.0",
     "express": "^5.2.1",
     "helmet": "^8.1.0",
     "morgan": "^1.10.1",
+    "node-fetch": "^3.3.2",
     "pg": "^8.19.0",
     "reflect-metadata": "^0.2.2",
     "typeorm": "^0.3.28"
