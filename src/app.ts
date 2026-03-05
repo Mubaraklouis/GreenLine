@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
 import healthRoutes from "./routes/healthRoutes";
+import webHookRouter from "./routes/webHookRoutes";
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 // Routes
 app.get("/", (_req, res) => {
@@ -25,5 +27,6 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/api/health", healthRoutes);
+app.use("/api/webhook/github", webHookRouter);
 
 export default app;
