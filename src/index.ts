@@ -1,8 +1,10 @@
 import "reflect-metadata";
 import app from "./app";
 import { AppDataSource } from "./config/database";
+import { startSmeeRelay } from "./relay";
 
-const PORT = process.env.API_PORT || 3000;
+const PORT = 3000;
+const SMEE_URL = "https://smee.io/I18KenMMvJvHYw";
 
 const startServer = async () => {
   try {
@@ -25,6 +27,7 @@ const startServer = async () => {
     app.listen(PORT, () => {
       console.log(`🚀 GreenLine API server running on port ${PORT}`);
       console.log(`📍 Environment: ${process.env.NODE_ENV || "development"}`);
+      startSmeeRelay(SMEE_URL, PORT);
     });
   } catch (error) {
     console.error("❌ Failed to start server:", error);
